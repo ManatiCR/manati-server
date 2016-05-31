@@ -1,0 +1,9 @@
+php_memory_limit: "128M"
+php_max_execution_time: "120"
+php_packages:
+  - php7.0
+  - php7.0-cli
+  - php7.0-common
+  - php7.0-mysql
+  - php7.0-mcrypt
+  - php7.0-json
