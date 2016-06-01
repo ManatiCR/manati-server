@@ -29,3 +29,4 @@
 
   tasks:
     - include: tasks/www.yml
+    - include: tasks/openvpn.yml
