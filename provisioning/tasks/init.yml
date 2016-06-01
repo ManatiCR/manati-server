@@ -1,0 +1,6 @@
+---
+- name: Ensure we have python 2.7
+  raw: sudo apt-get install python2.7 -y -qq
+
+- name: Gather facts
+  setup:

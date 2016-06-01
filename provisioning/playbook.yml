@@ -6,7 +6,9 @@
     - vars/main.yml
     - ../config.yml
 
+  gather_facts: False
   pre_tasks:
+    - include: tasks/init.yml
     - include: tasks/init-debian.yml
 
   roles:
