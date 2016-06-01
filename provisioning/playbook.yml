@@ -24,5 +24,8 @@
     # Teampass role.
     - kporras07.teampass
 
+    # OpenVPN
+    - Stouts.openvpn
+
   tasks:
     - include: tasks/www.yml
