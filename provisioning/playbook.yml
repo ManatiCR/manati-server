@@ -31,4 +31,4 @@
 
   tasks:
     - include: tasks/www.yml
-    - include: tasks/openvpn.yml
+    - include: tasks/firewall.yml

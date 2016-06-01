@@ -1,3 +1,0 @@
----
-- name: Set ip forwarding in the sysctl file and reload if necessary
-  sysctl: name="net.ipv4.ip_forward" value=1 sysctl_set=yes state=present reload=yes

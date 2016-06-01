@@ -1,0 +1,9 @@
+---
+- name: Firewall | Allow ssh
+  ufw: rule=allow port=ssh proto=tcp
+
+- name: Firewall | Allow openvpn
+  ufw: rule=allow port=1194 proto=udp
+
+- name: Firewall | Enable ufw
+  ufw: state=enabled
