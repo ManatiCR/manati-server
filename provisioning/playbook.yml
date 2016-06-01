@@ -21,5 +21,8 @@
     # Roles for security and stability on production.
     - geerlingguy.security
 
+    # Teampass role.
+    - kporras07.teampass
+
   tasks:
     - include: tasks/www.yml
