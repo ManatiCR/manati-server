@@ -39,6 +39,19 @@ Vagrant.configure(2) do |config|
       sh.args = '/provisioning/playbook.yml'
     end
   end
+
+  config.vm.provider :digital_ocean do |provider, override|
+
+    vconfig = YAML.load_file("#{dir}/config.yml")
+
+    override.vm.box = "digital_ocean"
+    override.ssh.private_key_path = vconfig['private_key_path']
+
+    provider.token = vconfig['digital_ocean_token']
+    provider.image = vconfig['digital_ocean_image']
+    provider.region = vconfig['digital_ocean_region']
+    provider.ssh_key_name = vconfig['digital_ocean_ssh_key_name']
+  end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
