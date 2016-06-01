@@ -23,6 +23,9 @@ teampass_db_user: "teampass_user"
 teampass_db_password: "teampass"
 teampass_server_name: "teampass.manati.vpn"
 
+# Misc
+admin_password: ""
+
 # OpenVPN
 openvpn_enabled: yes
 openvpn_etcdir: /etc/openvpn

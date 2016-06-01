@@ -12,7 +12,12 @@
   user: "name=vagrant append=yes groups=admin"
 
 - name: Add a admin user.
-  user: "name=admin shell=/bin/bash groups=admin"
+  user: "name=admin shell=/bin/bash groups=admin password={{ admin_password }} update_password=on_create"
+
+- set_fact:
+    my_ssh_key: "{{ lookup('env','HOME') }}/.ssh/id_rsa.pub"
+
+- authorized_key: user=admin key="{{ lookup('file', my_ssh_key) }}"
 
 - name: Ensure www-data user is in dialout group (Debian).
   user: "name=www-data append=yes groups=dialout"
