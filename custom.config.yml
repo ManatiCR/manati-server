@@ -60,12 +60,8 @@ openvpn_clients: [client]                         # Make clients certificate
 openvpn_clients_revoke: []                        # Revoke clients certificates
 
 # Use PAM authentication
-openvpn_use_pam: yes
+openvpn_use_pam: no
 openvpn_use_pam_users: []                         # If empty use system users
-
-# Use simple authentication (default is disabled)
-openvpn_simple_auth: yes
-openvpn_simple_auth_password: password
 
 # Config for DigitalOcean.
 private_key_path: "~/.ssh/id_rsa"
