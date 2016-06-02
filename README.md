@@ -7,8 +7,8 @@ Since we're so lazy at Manati; we need to have our teampass server fully scripte
 `sudo ansible-galaxy install -r provisioning/requirements.yml --force`
 
 ## Prerequisites
+
 - Copy custom.config.yml to config.yml and replace necessary values
-- 
 
 ## Start the VM
 `vagrant up`
