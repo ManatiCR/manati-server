@@ -9,7 +9,10 @@
     - dialout
 
 - name: Ensure vagrant user is in admin group.
-  user: "name=vagrant append=yes groups=admin"
+  user: "name=vagrant append=yes groups=admin shell=/bin/bash"
+
+- name: Add vagrant to sudoers no passwd
+  lineinfile: create=yes dest=/etc/sudoers.d/vagrant state=present line="vagrant ALL=(ALL) NOPASSWD:ALL" validate="visudo -cf %s"
 
 - name: Add a admin user.
   user: "name=admin shell=/bin/bash groups=admin password={{ admin_password }} update_password=on_create"
@@ -17,7 +20,11 @@
 - set_fact:
     my_ssh_key: "{{ lookup('env','HOME') }}/.ssh/id_rsa.pub"
 
-- authorized_key: user=admin key="{{ lookup('file', my_ssh_key) }}"
+- name: Add public key to admin user
+  authorized_key: user=admin key="{{ lookup('file', my_ssh_key) }}"
+
+- name: Add public key to vagrant user
+  authorized_key: user=vagrant key="{{ lookup('file', my_ssh_key) }}"
 
 - name: Ensure www-data user is in dialout group (Debian).
   user: "name=www-data append=yes groups=dialout"

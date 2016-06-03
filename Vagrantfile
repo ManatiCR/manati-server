@@ -46,6 +46,7 @@ Vagrant.configure(2) do |config|
 
     override.vm.box = "digital_ocean"
     override.ssh.private_key_path = vconfig['private_key_path']
+    override.ssh.username = 'vagrant'
 
     provider.token = vconfig['digital_ocean_token']
     provider.image = vconfig['digital_ocean_image']
