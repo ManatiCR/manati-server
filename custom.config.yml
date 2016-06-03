@@ -48,7 +48,8 @@ openvpn_verb: 3
 openvpn_user: nobody
 openvpn_group: nogroup
 openvpn_resolv_retry: infinite
-openvpn_server_options: []
+openvpn_server_options:
+  - push "dhcp-option DNS 10.8.0.1"
 openvpn_key_country: CR
 openvpn_key_province: SJO
 openvpn_key_city: SanJose
@@ -62,6 +63,13 @@ openvpn_clients_revoke: []                        # Revoke clients certificates
 # Use PAM authentication
 openvpn_use_pam: no
 openvpn_use_pam_users: []                         # If empty use system users
+
+# Dnsmasq config.
+dnsmasq_dhcp: false
+dnsmasq_tftp: false
+dnsmasq_conf_hosts:
+  - 10.8.0.1 {{ teampass_server_name }}
+
 
 # Config for DigitalOcean.
 private_key_path: "~/.ssh/id_rsa"

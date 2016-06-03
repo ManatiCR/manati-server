@@ -29,6 +29,8 @@
     # OpenVPN
     - Stouts.openvpn
 
+    # Dnsmasq
+    - jriguera.dnsmasq
   tasks:
     - include: tasks/www.yml
     - include: tasks/firewall.yml
