@@ -51,6 +51,7 @@ Vagrant.configure(2) do |config|
     provider.token = vconfig['digital_ocean_token']
     provider.image = vconfig['digital_ocean_image']
     provider.region = vconfig['digital_ocean_region']
+    provider.size = vconfig['digital_ocean_size']
     provider.ssh_key_name = vconfig['digital_ocean_ssh_key_name']
   end
   # Disable automatic box update checking. If you disable this, then
