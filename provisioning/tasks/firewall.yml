@@ -6,7 +6,10 @@
   ufw: rule=allow port=1194 proto=udp
 
 - name: Firewall | Allow apache on vpn
-  ufw: rule=allow port=80 proto=tcp src=10.8.0.0/24 
+  ufw: rule=allow port=80 proto=tcp src=10.8.0.0/24
+
+- name: Firewall | Allow dns
+  ufw: rule=allow port=53 proto=udp src=10.8.0.0/24
 
 - name: Firewall | Enable ufw
   ufw: state=enabled
