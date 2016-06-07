@@ -9,6 +9,7 @@ Since we're so lazy at Manati; we need to have our teampass server fully scripte
 ## Prerequisites
 
 - Copy custom.config.yml to config.yml and replace necessary values
+- Your system should have python-netaddr installed (`sudo apt-get install python-netaddr`)
 
 ## Start the VM
 `vagrant up`
