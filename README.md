@@ -15,7 +15,7 @@ Since we're so lazy at Manati; we need to have our teampass server fully scripte
 `vagrant up`
 
 ## Start the DigitalOcean server
-`vagrant up --provider=digitalocean`
+`vagrant up --provider=digital_ocean`
 
 ## Post Install
 
