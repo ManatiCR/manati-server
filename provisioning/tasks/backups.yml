@@ -1,0 +1,6 @@
+---
+- name: Backups | Move file to system location
+  template: src=templates/mysql-backup.sh.j2 dest=/usr/bin/mysql-backup.sh owner=root mode=0751
+
+- name: Backups | Add cron task
+  cron: name="backup_mysql" minute=0 hour=1 user="root" job="/usr/bin/mysql-backup.sh" cron_file="ansible_mysql_backup"

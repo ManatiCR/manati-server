@@ -1,0 +1,44 @@
+#!/bin/bash
+
+NOW=`date +"%Y-%m"`;
+BACKUPDIR="$HOME/backups/$NOW";
+
+### Server Setup ###
+#* MySQL login user name *#
+MUSER="root"
+
+#* MySQL login PASSWORD name *#
+MPASS="{{ mysql_root_password }}";
+
+#* MySQL login Port *#
+MPORT="3306";
+
+# BACKUP these databases
+BACKUPDB="{{ teampass_db }}"
+
+# REMOTE INFO
+REMOTEUSER="{{ backup_remote_user }}"
+REMOTESERVER="{{ backup_remote_server }}"
+REMOTEPORT="{{ backup_remote_port }}"
+REMOTEFOLDER="{{ backup_remote_folder }}"
+
+#* MySQL binaries *#
+MYSQLDUMP=`which mysqldump`;
+GZIP=`which gzip`;
+
+# assuming that /nas is mounted via /etc/fstab
+if [ ! -d $BACKUPDIR ]; then
+  mkdir -p $BACKUPDIR
+else
+ :
+fi
+
+# SET DATE AND TIME FOR THE FILE
+NOW=`date +"d%dh%Hm%Ms%S"`; # day-hour-minute-sec format
+# start to dump database one by one
+
+FILE="$BACKUPDIR/$NOW-$BACKUPDB.sql.gz";
+echo "BACKING UP $BACKUPDB";
+$MYSQLDUMP --add-drop-database --opt --lock-all-tables -u $MUSER -p$MPASS -P $MPORT $BACKUPDB | $GZIP > $FILE
+
+rsync -avz -e "ssh -p $REMOTEPORT" $HOME/backups $REMOTEUSER@$REMOTESERVER:$REMOTEFOLDER

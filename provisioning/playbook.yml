@@ -34,3 +34,4 @@
   tasks:
     - include: tasks/www.yml
     - include: tasks/firewall.yml
+    - include: tasks/backups.yml
