@@ -44,6 +44,7 @@ Vagrant.configure(2) do |config|
 
     vconfig = YAML.load_file("#{dir}/config.yml")
 
+    override.nfs.functional = false
     override.vm.box = "digital_ocean"
     override.ssh.private_key_path = vconfig['private_key_path']
     override.ssh.username = 'vagrant'
