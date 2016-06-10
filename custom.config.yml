@@ -72,6 +72,9 @@ dnsmasq_dhcp: false
 dnsmasq_tftp: false
 dnsmasq_conf_hosts:
   - 10.8.0.1 {{ teampass_server_name }}
+dnsmasq_conf_listen:
+  - 10.8.0.1
+  - 127.0.0.1
 
 
 # Config for DigitalOcean.
