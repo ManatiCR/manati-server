@@ -19,6 +19,9 @@ php_conf_paths:
 
 # MySQL
 mysql_root_password: "CHANGEME"
+mysql_config_include_files:
+    - src: files/compatibility.cnf
+      force: yes
 
 # Teampass
 teampass_db: "teampass_db"
